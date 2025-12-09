@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
-from typing import Dict, Optional  # Any bỏ đi vì không dùng
+from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -11,14 +11,13 @@ from src.preprocessing.data_preprocessor import (
     DataPreprocessor,
     PreprocessorConfig,
     DataPreprocessorError,
-    LoggingPreprocessor,   # <<< MỚI: import lớp kế thừa
 )
-
 from src.modeling.model_trainer import (
     ModelTrainer,
     TrainerConfig,
     ModelTrainerError,
 )
+
 
 # -----------------------------------------------------------
 # 0. Cấu hình logger chung cho toàn project (nếu chưa cấu hình)
@@ -28,6 +27,7 @@ logging.basicConfig(
     format="[%(asctime)s] %(levelname)s - %(name)s - %(message)s",
 )
 logger = logging.getLogger(__name__)
+
 
 # -----------------------------------------------------------
 # 1. Hàm tiện ích build config (tránh hard-code rải rác)
@@ -92,6 +92,7 @@ def build_preprocessor_config(project_root: Path) -> PreprocessorConfig:
     )
     return prep_config
 
+
 def build_trainer_config(project_root: Path) -> TrainerConfig:
     """
     Tạo TrainerConfig:
@@ -110,11 +111,12 @@ def build_trainer_config(project_root: Path) -> TrainerConfig:
         cv_splits=5,
         use_randomized_search=True,
         n_iter_random_search=20,
-        use_smote=True,                # xử lý imbalance trong CV (không leak test)
+        use_smote=False,                # xử lý imbalance trong CV (không leak test)
         model_names=["log_reg", "random_forest"],
         model_output_dir=model_dir,
     )
     return trainer_config
+
 
 # -----------------------------------------------------------
 # 2. Hàm in báo cáo metrics + giải thích trade-off Precision/Recall
@@ -124,7 +126,7 @@ def summarize_test_metrics(
     metrics: Dict[str, float],
 ) -> None:
     """
-    In summary các chỉ số trên tập test và giải thích nhanh trade-off
+    In ra summary các chỉ số trên tập test và giải thích nhanh trade-off
     Precision vs Recall trong bối cảnh tiểu đường.
     """
     logger.info("===== KẾT QUẢ TRÊN TẬP TEST (%s) =====", best_model_name)
@@ -172,6 +174,7 @@ def summarize_test_metrics(
                 rec,
             )
 
+
 def show_feature_importance_and_shap(
     trainer: ModelTrainer,
     best_model_name: str,
@@ -203,18 +206,19 @@ def show_feature_importance_and_shap(
     except ModelTrainerError as e:
         logger.warning("Không tính được SHAP values (có thể thiếu thư viện shap): %s", e)
 
+
 # -----------------------------------------------------------
 # 3. Hàm main – chạy full pipeline bằng 1 lệnh
 # -----------------------------------------------------------
 def main() -> None:
     """
     Chạy full pipeline:
-    1) Tiền xử lý dữ liệu (DataPreprocessor/LoggingPreprocessor).
+    1) Tiền xử lý dữ liệu (DataPreprocessor) – fit trên train, transform trên test.
     2) Huấn luyện & tối ưu nhiều model (ModelTrainer) bằng CV.
     3) Đánh giá trên test với F1, ROC-AUC, Accuracy, Precision, Recall.
     4) In ra feature importance + SHAP (nếu có) để giải thích mô hình.
     """
-    # Xác định project_root từ vị trí file main.py (src/main.py)
+    # Xác định project_root từ vị trí file run_pipeline.py (src/run_pipeline.py)
     project_root: Path = Path(__file__).resolve().parents[1]
     logger.info("Project root: %s", project_root)
 
@@ -224,8 +228,7 @@ def main() -> None:
 
     # 2) Chạy Preprocessing
     try:
-        # preprocessor = DataPreprocessor(config=prep_config)    # CŨ
-        preprocessor = LoggingPreprocessor(config=prep_config)   # DÙNG LỚP KẾ THỪA
+        preprocessor = DataPreprocessor(config=prep_config)
         X_train, X_test, y_train, y_test = preprocessor.run_full_preprocessing()
     except (DataPreprocessorError, FileNotFoundError) as e:
         logger.error("Lỗi trong bước tiền xử lý dữ liệu: %s", e)
@@ -239,17 +242,6 @@ def main() -> None:
         X_train.shape,
         X_test.shape,
     )
-
-    # Log rõ class đang dùng để cho giảng viên thấy kế thừa
-    logger.info(
-        "Preprocessor class đang dùng: %s",
-        preprocessor.__class__.__name__,
-    )
-    if hasattr(preprocessor, "missing_summary_"):
-        logger.info(
-            "Missing summary (từ LoggingPreprocessor): %s",
-            preprocessor.missing_summary_,
-        )
 
     # 3) Huấn luyện & Tối ưu model
     try:
@@ -287,9 +279,7 @@ def main() -> None:
 
     logger.info("Hoàn tất toàn bộ pipeline Pima Diabetes – có thể dùng để trình bày với giảng viên.")
 
+
 if __name__ == "__main__":
     main()
-    # Chạy bằng:
-    #   python -m src.main
-
-
+# python -m src.main
