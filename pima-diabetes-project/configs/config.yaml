@@ -1,0 +1,10 @@
+random_state: 42
+test_size: 0.2
+scaler: standard
+models:
+  - name: logistic_regression
+    type: logistic
+  - name: random_forest
+    type: rf
+  - name: xgboost
+    type: xgb

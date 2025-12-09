@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+notebook
+ipykernel
+pyyaml
+xgboost
+shap
+imbalanced-learn
+pyarrow
+fastparquet
