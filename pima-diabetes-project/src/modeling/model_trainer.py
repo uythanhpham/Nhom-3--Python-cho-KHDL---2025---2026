@@ -560,7 +560,10 @@ class ModelTrainer:
             feature_names = [f"f{i}" for i in range(X_numeric.shape[1])]
 
         explainer = shap.Explainer(underlying_model, X_numeric)
-        shap_values = explainer(X_numeric)
+        shap_values = explainer(
+            X_numeric,
+            check_additivity=False,
+        )
 
         sv = np.asarray(shap_values.values)
 
