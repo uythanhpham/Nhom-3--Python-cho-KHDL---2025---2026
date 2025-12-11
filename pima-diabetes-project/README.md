@@ -1,7 +1,5 @@
 ---
-# **PIMA DIABETES PROJECT — HƯỚNG DẪN CÀI ĐẶT THƯ VIỆN**
-Dự án này xây dựng một **pipeline Machine Learning hoàn chỉnh** để dự đoán bệnh tiểu đường từ dataset Pima Indians Diabetes.
----
+------------------------------ PHƯỚNG DẪN CÀI ĐẶT THƯ VIỆN ------------------------------
 
 ---
 
@@ -28,12 +26,13 @@ pip install -r requirements.txt
 ---
 ---
 ---
-
----
-# **PIMA DIABETES PROJECT — HƯỚNG DẪN CHẠY DỰ ÁN**
 ---
 
-## **Giới thiệu Cấu hình Hệ thống (Configuration)**
+---
+------------------------------ HƯỚNG DẪN CHẠY DỰ ÁN ------------------------------
+---
+
+## **       Giới thiệu Cấu hình Hệ thống (Configuration)           **
 Dự án sử dụng Configuration Object Pattern để quản lý tham số, chia làm 2 tầng:
   1. **Cấu hình Mặc định (Default Settings)**:
     * Nằm trong `src/preprocessing/data_preprocessor.py` và `src/modeling/model_trainer.py`.
@@ -47,7 +46,7 @@ Dự án sử dụng Configuration Object Pattern để quản lý tham số, ch
 
 ---
 
-# **1. (Tuỳ chọn) Chạy Notebook 01 — EDA**
+# **        1. (Tuỳ chọn) Chạy Notebook 01 — EDA        **
 ```text
 notebooks/01_eda_pima.ipynb
 ```
@@ -58,12 +57,11 @@ Notebook này dùng để:
   * Quan sát imbalance của Outcome
   * Lấy hình minh họa đưa vào báo cáo.
 ---
-**Notebook 1 không bắt buộc**.
-Nó chỉ giúp hiểu dữ liệu trước khi modeling.
+**        Notebook 1 không bắt buộc        **.
+Nó chỉ giúp hiểu dữ liệu trước khi tiền hành tiền xử lý và modeling.
 
 ---
-
-# **2. Chạy Pipeline Chính — BẮT BUỘC**
+# **        2. Chạy Pipeline Chính — BẮT BUỘC        **
 Pipeline nằm trong:
 ```text
 src/main.py
@@ -102,8 +100,7 @@ python src/main.py
    ```
 
 ---
-
-# **5. Chạy Notebook 02 — Evaluation, Visualization**
+# **        5. Chạy Notebook 02 — Evaluation, Visualization        **
 Sau khi pipeline chạy xong ít nhất 1 lần, thư mục sau sẽ xuất hiện:
   * `data/processed/*.parquet` -> cleaned data
   * `models/*_best.joblib` -> the best model
@@ -128,7 +125,7 @@ Notebook này dùng để:
 
 ---
 
-# **6. Chú ý quan trọng**
+# **        6. Chú ý quan trọng        **
 ### Không cần chạy trực tiếp:
 * `data_preprocessor.py`
 * `model_trainer.py`
