@@ -24,23 +24,25 @@ pip install -r requirements.txt
 ```
 
 ---
-
+---
+---
+---
 ---
 
+---
 # **PIMA DIABETES PROJECT — HƯỚNG DẪN CHẠY DỰ ÁN**
-
 ---
 
-## **Cấu hình Hệ thống (Configuration)**
+## **Giới thiệu Cấu hình Hệ thống (Configuration)**
 Dự án sử dụng Configuration Object Pattern để quản lý tham số, chia làm 2 tầng:
   1. **Cấu hình Mặc định (Default Settings)**:
     * Nằm trong `src/preprocessing/data_preprocessor.py` và `src/modeling/model_trainer.py`.
     * Đây là các giá trị chuẩn (factory defaults) giúp code chạy ổn định ngay cả khi không truyền tham số.
         ? - [Giải thích THAM SỐ MẶC ĐỊNH DataPreprocessor](./reports/THAM%20SỐ%20MẶC%20ĐỊNH%20DataPreprocessor.pdf)
         ? - [Giải thích THAM SỐ MẶC ĐỊNH ModelTrainer](./reports/THAM%20SỐ%20MẶC%20ĐỊNH%20ModelTrainer.pdf)
-        ? - [Giải thích THAM SỐ TRUYỀN VÀO](./reports/THAM%20SỐ%20TRUYỀN%20VÀO.pdf)
   2. **Cấu hình Người dùng (User Options)**:
-    * Nằm trong `src/main.py`.
+    * Nằm trong `configs/config.yaml` được truyền vào `src/main.py` khi chạy.
+        ? - [Giải thích THAM SỐ TRUYỀN VÀO](./reports/THAM%20SỐ%20TRUYỀN%20VÀO.pdf)
     * Đây là nơi ghi đè (override) các cài đặt mặc định để tùy chỉnh thí nghiệm. Việc hiển thị rõ các tham số tại đây giúp người dùng dễ dàng theo dõi và thay đổi chiến lược xử lý mà không cần can thiệp vào code lõi.
 
 ---
@@ -103,9 +105,9 @@ python src/main.py
 
 # **5. Chạy Notebook 02 — Evaluation, Visualization**
 Sau khi pipeline chạy xong ít nhất 1 lần, thư mục sau sẽ xuất hiện:
-  * `data/processed/*.parquet`
-  * `models/*_best.joblib`
-  * `results/*.csv`
+  * `data/processed/*.parquet` -> cleaned data
+  * `models/*_best.joblib` -> the best model
+  * `results/*.csv` -> best model's metrics
 Sau đó mở:
 ```text
 notebooks/02_model_evaluation.ipynb
@@ -126,12 +128,13 @@ Notebook này dùng để:
 
 ---
 
-# **6. Ghi chú quan trọng**
+# **6. Chú ý quan trọng**
 ### Không cần chạy trực tiếp:
 * `data_preprocessor.py`
 * `model_trainer.py`
-Hai file này chức năng duy nhất là **chứa định nghĩa class**, được gọi tự động trong `main.py`.
-### Chỉ cần một lệnh duy nhất để chạy toàn bộ project:
+Hai file này chức năng duy nhất là **chứa định nghĩa class**, được gọi tự động trong `main.py`,
+nên không phải luồng chạy.
+### Lệnh duy nhất để chạy toàn bộ project:
 ```bash
 python -m src.main
 ```

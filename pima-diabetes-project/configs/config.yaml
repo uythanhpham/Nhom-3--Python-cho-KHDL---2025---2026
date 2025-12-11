@@ -1,10 +1,65 @@
-random_state: 42
-test_size: 0.2
-scaler: standard
-models:
-  - name: logistic_regression
-    type: logistic
-  - name: random_forest
-    type: rf
-  - name: xgboost
-    type: xgb
+preprocessor:
+  raw_data_path: "data/raw/diabetes.csv"
+  processed_train_path: "data/processed/pima_train_processed.parquet"
+  processed_test_path: "data/processed/pima_test_processed.parquet"
+
+  hidden_missing_cols:
+    - Glucose
+    - BloodPressure
+    - SkinThickness
+    - Insulin
+    - BMI
+
+  missing:
+    numeric_strategy: "median_by_outcome"
+    categorical_strategy: "most_frequent"
+
+  outlier:
+    numeric_cols: null
+    method: "iqr"
+    strategy: "winsorize"
+    iqr_factor: 1.5
+
+  scaler:
+    type: "standard"
+    exclude_cols: ["Outcome"]
+    save_scaler_path: "data/processed/scaler.joblib"
+
+  encoding:
+    strategy: "onehot"
+    handle_unknown: "ignore"
+
+  feature_engineering:
+    enable: true
+    create_bmi_category: true
+    create_age_group: true
+    create_pregnancy_flag: true
+    create_interactions: true
+    bmi_col: "BMI"
+    age_col: "Age"
+    pregnancies_col: "Pregnancies"
+    glucose_col: "Glucose"
+    insulin_col: "Insulin"
+
+  split:
+    test_size: 0.2
+    random_state: 42
+    stratify: true
+
+
+trainer:
+  target_col: "Outcome"
+  random_state: 42
+  scoring_primary: "f1"
+  scoring_other: ["roc_auc", "accuracy", "precision", "recall"]
+
+  cv_splits: 5
+  use_randomized_search: true
+  n_iter_random_search: 20
+  use_smote: false
+
+  model_names:
+    - "log_reg"
+    - "random_forest"
+
+  model_output_dir: "models"

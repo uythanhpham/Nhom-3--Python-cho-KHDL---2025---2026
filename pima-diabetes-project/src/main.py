@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Optional
 
 import numpy as np
 import pandas as pd
+import yaml
 
 from src.preprocessing.data_preprocessor import (
     DataPreprocessor,
@@ -18,7 +19,6 @@ from src.modeling.model_trainer import (
     ModelTrainerError,
 )
 
-
 # -----------------------------------------------------------
 # 0. Cấu hình logger chung cho toàn project (nếu chưa cấu hình)
 # -----------------------------------------------------------
@@ -30,90 +30,74 @@ logger = logging.getLogger(__name__)
 
 
 # -----------------------------------------------------------
-# 1. Hàm tiện ích build config (tránh hard-code rải rác)
+# 1. Hàm tiện ích load YAML + build config
 # -----------------------------------------------------------
-def build_preprocessor_config(project_root: Path) -> PreprocessorConfig:
+def load_config(project_root: Path) -> Dict[str, Any]:
     """
-    Tạo PreprocessorConfig với đầy đủ cấu hình:
-    - Đường dẫn file raw.
-    - Chiến lược xử lý hidden missing, imputation, outlier, scaler, feature engineering.
+    Đọc file configs/config.yaml và trả về dict cấu hình.
     """
-    raw_data_path = project_root / "data" / "raw" / "diabetes.csv"
-    processed_dir = project_root / "data" / "processed"
+    config_path = project_root / "configs" / "config.yaml"
+    if not config_path.exists():
+        raise FileNotFoundError(f"Không tìm thấy file config: {config_path}")
+
+    logger.info("Đọc cấu hình từ %s", config_path)
+    with open(config_path, "r", encoding="utf-8") as f:
+        cfg: Dict[str, Any] = yaml.safe_load(f)
+    return cfg
+
+
+def build_preprocessor_config(project_root: Path, cfg: Dict[str, Any]) -> PreprocessorConfig:
+    """
+    Tạo PreprocessorConfig từ dict cấu hình (section 'preprocessor' trong YAML).
+    - Đường dẫn trong YAML là relative path, được nối với project_root.
+    """
+    p = cfg["preprocessor"]
+
+    raw_data_path = project_root / p["raw_data_path"]
+    processed_train_path = project_root / p["processed_train_path"]
+    processed_test_path = project_root / p["processed_test_path"]
+
+    # Scaler: chỉnh lại đường dẫn save_scaler_path sang Path
+    scaler_cfg = dict(p["scaler"])
+    if "save_scaler_path" in scaler_cfg and scaler_cfg["save_scaler_path"] is not None:
+        scaler_cfg["save_scaler_path"] = project_root / scaler_cfg["save_scaler_path"]
 
     prep_config = PreprocessorConfig(
         raw_data_path=raw_data_path,
-        processed_train_path=processed_dir / "pima_train_processed.parquet",
-        processed_test_path=processed_dir / "pima_test_processed.parquet",
-        target_col="Outcome",
-        # Hidden missing + imputation thông minh
-        hidden_missing_cols=["Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI"],
-        missing={
-            "numeric_strategy": "median_by_outcome",    # median theo nhóm Outcome (0/1)
-            "categorical_strategy": "most_frequent",
-        },
-        # Outlier IQR + winsorize
-        outlier={
-            "numeric_cols": None,   # None → tự phát hiện từ numeric_cols
-            "method": "iqr",
-            "strategy": "winsorize",
-            "iqr_factor": 1.5,
-        },
-        # Scaler: standard, exclude target
-        scaler={
-            "type": "standard",
-            "exclude_cols": ["Outcome"],
-            "save_scaler_path": processed_dir / "scaler.joblib",
-        },
-        # Encoding: (dataset Pima gốc chủ yếu numeric, nhưng vẫn bật để tái sử dụng)
-        encoding={
-            "strategy": "onehot",
-            "handle_unknown": "ignore",
-        },
-        # Feature engineering mang ý nghĩa y khoa
-        feature_engineering={
-            "enable": True,
-            "create_bmi_category": True,
-            "create_age_group": True,
-            "create_pregnancy_flag": True,
-            "create_interactions": True,
-            "bmi_col": "BMI",
-            "age_col": "Age",
-            "pregnancies_col": "Pregnancies",
-            "glucose_col": "Glucose",
-            "insulin_col": "Insulin",
-        },
-        # Split: có stratify=y, random_state cố định để reproducible
-        split={
-            "test_size": 0.2,
-            "random_state": 42,
-            "stratify": True,
-        },
+        processed_train_path=processed_train_path,
+        processed_test_path=processed_test_path,
+        # target_col có thể để default trong PreprocessorConfig, hoặc lấy từ YAML nếu có
+        target_col=p.get("target_col", "Outcome"),
+        hidden_missing_cols=p["hidden_missing_cols"],
+        missing=p["missing"],
+        outlier=p["outlier"],
+        scaler=scaler_cfg,
+        encoding=p["encoding"],
+        feature_engineering=p["feature_engineering"],
+        split=p["split"],
     )
     return prep_config
 
 
-def build_trainer_config(project_root: Path) -> TrainerConfig:
+def build_trainer_config(project_root: Path, cfg: Dict[str, Any]) -> TrainerConfig:
     """
-    Tạo TrainerConfig:
-    - Random state cố định.
-    - Dùng F1 làm scoring chính, thêm ROC-AUC và các metrics khác.
-    - Huấn luyện Logistic Regression + Random Forest.
-    - Có SMOTE để xử lý imbalance.
+    Tạo TrainerConfig từ dict cấu hình (section 'trainer' trong YAML).
     """
-    model_dir = project_root / "models"
+    t = cfg["trainer"]
+
+    model_output_dir = project_root / t["model_output_dir"]
 
     trainer_config = TrainerConfig(
-        target_col="Outcome",
-        random_state=42,               # reproducibility
-        scoring_primary="f1",          # ưu tiên F1 cho bài toán y khoa
-        scoring_other=["roc_auc", "accuracy", "precision", "recall"],
-        cv_splits=5,
-        use_randomized_search=True,
-        n_iter_random_search=20,
-        use_smote=False,                # xử lý imbalance trong CV (không leak test)
-        model_names=["log_reg", "random_forest"],
-        model_output_dir=model_dir,
+        target_col=t["target_col"],
+        random_state=t["random_state"],
+        scoring_primary=t["scoring_primary"],
+        scoring_other=t["scoring_other"],
+        cv_splits=t["cv_splits"],
+        use_randomized_search=t["use_randomized_search"],
+        n_iter_random_search=t["n_iter_random_search"],
+        use_smote=t["use_smote"],
+        model_names=t["model_names"],
+        model_output_dir=model_output_dir,
     )
     return trainer_config
 
@@ -191,7 +175,11 @@ def show_feature_importance_and_shap(
             best_model_name,
             feature_names=X_train.columns.tolist(),
         )
-        logger.info("===== TOP %d FEATURE IMPORTANCE (%s) =====", top_k, best_model_name)
+        logger.info(
+            "===== TOP %d FEATURE IMPORTANCE (%s) =====",
+            top_k,
+            best_model_name,
+        )
         logger.info("\n%s", importance_df.head(top_k).to_string(index=False))
     except ModelTrainerError as e:
         logger.warning("Không lấy được feature importance: %s", e)
@@ -199,12 +187,21 @@ def show_feature_importance_and_shap(
     # SHAP Values
     try:
         shap_values, shap_imp_df = trainer.compute_shap_values(
-            best_model_name, X_sample=X_train, max_samples=200
+            best_model_name,
+            X_sample=X_train,
+            max_samples=200,
         )
-        logger.info("===== TOP %d SHAP MEAN(|VALUE|) (%s) =====", top_k, best_model_name)
+        logger.info(
+            "===== TOP %d SHAP MEAN(|VALUE|) (%s) =====",
+            top_k,
+            best_model_name,
+        )
         logger.info("\n%s", shap_imp_df.head(top_k).to_string(index=False))
     except ModelTrainerError as e:
-        logger.warning("Không tính được SHAP values (có thể thiếu thư viện shap): %s", e)
+        logger.warning(
+            "Không tính được SHAP values (có thể thiếu thư viện shap): %s",
+            e,
+        )
 
 
 # -----------------------------------------------------------
@@ -218,13 +215,22 @@ def main() -> None:
     3) Đánh giá trên test với F1, ROC-AUC, Accuracy, Precision, Recall.
     4) In ra feature importance + SHAP (nếu có) để giải thích mô hình.
     """
-    # Xác định project_root từ vị trí file run_pipeline.py (src/run_pipeline.py)
+    # Xác định project_root từ vị trí file src/main.py
     project_root: Path = Path(__file__).resolve().parents[1]
     logger.info("Project root: %s", project_root)
 
-    # 1) Tạo config cho Preprocessor & Trainer
-    prep_config: PreprocessorConfig = build_preprocessor_config(project_root)
-    trainer_config: TrainerConfig = build_trainer_config(project_root)
+    # 1) Đọc YAML config và tạo config cho Preprocessor & Trainer
+    try:
+        cfg = load_config(project_root)
+    except FileNotFoundError as e:
+        logger.error("Không đọc được file cấu hình: %s", e)
+        return
+    except Exception as e:
+        logger.exception("Lỗi không mong đợi khi đọc config: %s", e)
+        return
+
+    prep_config: PreprocessorConfig = build_preprocessor_config(project_root, cfg)
+    trainer_config: TrainerConfig = build_trainer_config(project_root, cfg)
 
     # 2) Chạy Preprocessing
     try:
@@ -263,7 +269,8 @@ def main() -> None:
     best_metrics: Dict[str, float] = trainer.test_metrics_.get(best_model_name, {})
     if not best_metrics:
         logger.error(
-            "Không tìm thấy metrics trên test cho model '%s'.", best_model_name
+            "Không tìm thấy metrics trên test cho model '%s'.",
+            best_model_name,
         )
         return
 
@@ -277,7 +284,9 @@ def main() -> None:
             "X_train không phải DataFrame → không có tên cột để hiển thị feature importance / SHAP."
         )
 
-    logger.info("Hoàn tất toàn bộ pipeline Pima Diabetes – có thể dùng để trình bày với giảng viên.")
+    logger.info(
+        "Hoàn tất toàn bộ pipeline Pima Diabetes – có thể dùng để trình bày với giảng viên."
+    )
 
 
 if __name__ == "__main__":

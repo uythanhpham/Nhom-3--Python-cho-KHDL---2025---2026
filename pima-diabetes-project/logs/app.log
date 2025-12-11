@@ -1,86 +1,86 @@
-[2025-12-10 03:53:29,410] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
-[2025-12-10 03:53:29,411] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
-[2025-12-10 03:53:29,415] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
-[2025-12-10 03:53:29,416] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 03:53:29,416] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
-[2025-12-10 03:53:29,417] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 03:53:29,418] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 03:53:29,419] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 03:53:29,419] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 03:53:29,420] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 03:53:29,427] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 14)
-[2025-12-10 03:53:29,431] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 13), X_test: (154, 13)
-[2025-12-10 03:53:29,433] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 14)
-[2025-12-10 03:53:29,434] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose', 'Outcome'], categorical=['BMI_category', 'Age_group'], datetime=[]
-[2025-12-10 03:53:29,437] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
-[2025-12-10 03:53:29,440] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
-[2025-12-10 03:53:29,440] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
-[2025-12-10 03:53:29,441] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
-[2025-12-10 03:53:29,441] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
-[2025-12-10 03:53:29,442] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
-[2025-12-10 03:53:29,442] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
-[2025-12-10 03:53:29,443] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
-[2025-12-10 03:53:29,443] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
-[2025-12-10 03:53:29,444] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancy_high: {0: 0.0, 1: 1.0}
-[2025-12-10 03:53:29,444] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose_x_BMI: {0: 3282.8999999999996, 1: 4985.7}
-[2025-12-10 03:53:29,445] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin_div_Glucose: {0: 0.9070257012806522, 1: 1.1764705767012689}
-[2025-12-10 03:53:29,450] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 03:53:29,454] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 03:53:29,460] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 03:53:29,468] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 03:53:29,473] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 03:53:29,478] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 03:53:29,497] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 03:53:29,498] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột BMI_category: Obese
-[2025-12-10 03:53:29,498] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột Age_group: 21-30
-[2025-12-10 03:53:29,499] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 03:53:29,500] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
-[2025-12-10 03:53:29,503] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
-[2025-12-10 03:53:29,505] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
-[2025-12-10 03:53:29,506] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
-[2025-12-10 03:53:29,508] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
-[2025-12-10 03:53:29,509] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
-[2025-12-10 03:53:29,511] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
-[2025-12-10 03:53:29,513] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
-[2025-12-10 03:53:29,515] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancy_high: lower=-1.5000, upper=2.5000
-[2025-12-10 03:53:29,517] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose_x_BMI: lower=229.6375, upper=7544.1375
-[2025-12-10 03:53:29,518] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin_div_Glucose: lower=0.5029, upper=1.5806
-[2025-12-10 03:53:29,521] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
-[2025-12-10 03:53:29,523] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose']
-[2025-12-10 03:53:29,525] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
-[2025-12-10 03:53:29,527] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
-[2025-12-10 03:53:29,528] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 14)
-[2025-12-10 03:53:29,530] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
-[2025-12-10 03:53:29,535] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 03:53:29,539] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 03:53:29,545] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 03:53:29,552] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 03:53:29,556] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 03:53:29,561] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 03:53:29,568] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 03:53:29,568] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 03:53:29,577] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
-[2025-12-10 03:53:29,579] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 20)
-[2025-12-10 03:53:29,580] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 14)
-[2025-12-10 03:53:29,583] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 14)
-[2025-12-10 03:53:29,585] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 03:53:29,587] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 03:53:29,589] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 03:53:29,592] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 03:53:29,594] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 03:53:29,596] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 03:53:29,598] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 03:53:29,599] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 03:53:29,609] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (154, 20)
-[2025-12-10 03:53:29,612] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 20)
-[2025-12-10 03:53:29,632] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
-[2025-12-10 03:53:29,636] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
-[2025-12-10 03:53:29,637] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
-[2025-12-10 03:53:29,637] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 19)
-[2025-12-10 03:53:29,637] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
-[2025-12-10 03:53:30,187] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 1.0}, best f1: 0.7989
-[2025-12-10 03:53:30,190] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 03:53:30,207] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 14:40:08,921] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
+[2025-12-11 14:40:08,922] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
+[2025-12-11 14:40:08,944] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
+[2025-12-11 14:40:08,946] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
+[2025-12-11 14:40:08,948] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
+[2025-12-11 14:40:08,950] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 14:40:08,952] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 14:40:08,953] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 14:40:08,954] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 14:40:08,955] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 14:40:08,965] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 14)
+[2025-12-11 14:40:08,969] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 13), X_test: (154, 13)
+[2025-12-11 14:40:08,971] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 14)
+[2025-12-11 14:40:08,972] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose', 'Outcome'], categorical=['BMI_category', 'Age_group'], datetime=[]
+[2025-12-11 14:40:08,975] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
+[2025-12-11 14:40:08,979] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
+[2025-12-11 14:40:08,980] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
+[2025-12-11 14:40:08,980] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
+[2025-12-11 14:40:08,981] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
+[2025-12-11 14:40:08,981] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
+[2025-12-11 14:40:08,981] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
+[2025-12-11 14:40:08,982] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
+[2025-12-11 14:40:08,982] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
+[2025-12-11 14:40:08,983] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancy_high: {0: 0.0, 1: 1.0}
+[2025-12-11 14:40:08,983] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose_x_BMI: {0: 3282.8999999999996, 1: 4985.7}
+[2025-12-11 14:40:08,984] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin_div_Glucose: {0: 0.9070257012806522, 1: 1.1764705767012689}
+[2025-12-11 14:40:08,989] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 14:40:08,996] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 14:40:09,002] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 14:40:09,009] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 14:40:09,015] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 14:40:09,021] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 14:40:09,028] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 14:40:09,030] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột BMI_category: Obese
+[2025-12-11 14:40:09,030] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột Age_group: 21-30
+[2025-12-11 14:40:09,030] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 14:40:09,032] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
+[2025-12-11 14:40:09,035] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
+[2025-12-11 14:40:09,036] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
+[2025-12-11 14:40:09,038] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
+[2025-12-11 14:40:09,039] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
+[2025-12-11 14:40:09,041] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
+[2025-12-11 14:40:09,043] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
+[2025-12-11 14:40:09,045] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
+[2025-12-11 14:40:09,048] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancy_high: lower=-1.5000, upper=2.5000
+[2025-12-11 14:40:09,049] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose_x_BMI: lower=229.6375, upper=7544.1375
+[2025-12-11 14:40:09,051] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin_div_Glucose: lower=0.5029, upper=1.5806
+[2025-12-11 14:40:09,056] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
+[2025-12-11 14:40:09,058] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose']
+[2025-12-11 14:40:09,061] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
+[2025-12-11 14:40:09,063] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
+[2025-12-11 14:40:09,064] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 14)
+[2025-12-11 14:40:09,068] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
+[2025-12-11 14:40:09,073] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 14:40:09,079] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 14:40:09,088] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 14:40:09,096] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 14:40:09,101] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 14:40:09,106] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 14:40:09,114] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 14:40:09,114] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 14:40:09,127] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
+[2025-12-11 14:40:09,131] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 20)
+[2025-12-11 14:40:09,131] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 14)
+[2025-12-11 14:40:09,134] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 14)
+[2025-12-11 14:40:09,137] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 14:40:09,140] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 14:40:09,143] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 14:40:09,146] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 14:40:09,148] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 14:40:09,151] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 14:40:09,153] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 14:40:09,154] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 14:40:09,164] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (154, 20)
+[2025-12-11 14:40:09,167] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 20)
+[2025-12-11 14:40:09,410] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
+[2025-12-11 14:40:09,417] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
+[2025-12-11 14:40:09,420] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
+[2025-12-11 14:40:09,420] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 19)
+[2025-12-11 14:40:09,421] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
+[2025-12-11 14:40:09,975] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 1.0}, best f1: 0.7989
+[2025-12-11 14:40:09,978] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
+[2025-12-11 14:40:10,005] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.93      0.77      0.84       100
@@ -90,11 +90,11 @@
    macro avg       0.80      0.83      0.80       154
 weighted avg       0.84      0.81      0.82       154
 
-[2025-12-10 03:53:30,207] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.8116883116883117, 'precision': 0.676056338028169, 'recall': 0.8888888888888888, 'f1': 0.768, 'roc_auc': np.float64(0.8524074074074075), 'tn': 77.0, 'fp': 23.0, 'fn': 6.0, 'tp': 48.0}
-[2025-12-10 03:53:30,207] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
-[2025-12-10 03:54:05,120] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 2, 'max_depth': 5}, best f1: 0.8422
-[2025-12-10 03:54:05,166] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 03:54:05,197] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 14:40:10,006] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.8116883116883117, 'precision': 0.676056338028169, 'recall': 0.8888888888888888, 'f1': 0.768, 'roc_auc': np.float64(0.8524074074074075), 'tn': 77.0, 'fp': 23.0, 'fn': 6.0, 'tp': 48.0}
+[2025-12-11 14:40:10,006] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
+[2025-12-11 14:40:40,870] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 2, 'max_depth': 5}, best f1: 0.8422
+[2025-12-11 14:40:40,917] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
+[2025-12-11 14:40:40,953] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.94      0.88      0.91       100
@@ -104,14 +104,14 @@ weighted avg       0.84      0.81      0.82       154
    macro avg       0.87      0.88      0.87       154
 weighted avg       0.89      0.88      0.88       154
 
-[2025-12-10 03:54:05,198] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8831168831168831, 'precision': 0.8, 'recall': 0.8888888888888888, 'f1': 0.8421052631578947, 'roc_auc': np.float64(0.9553703703703703), 'tn': 88.0, 'fp': 12.0, 'fn': 6.0, 'tp': 48.0}
-[2025-12-10 03:54:05,198] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8421)
-[2025-12-10 03:54:05,201] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
-[2025-12-10 03:54:05,202] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
-[2025-12-10 04:04:40,342] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
-[2025-12-10 04:04:40,347] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 04:04:40,391] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 04:04:40,415] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 14:40:40,953] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8831168831168831, 'precision': 0.8, 'recall': 0.8888888888888888, 'f1': 0.8421052631578947, 'roc_auc': np.float64(0.9553703703703703), 'tn': 88.0, 'fp': 12.0, 'fn': 6.0, 'tp': 48.0}
+[2025-12-11 14:40:40,953] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8421)
+[2025-12-11 14:40:40,958] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
+[2025-12-11 14:40:40,958] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
+[2025-12-11 15:05:17,764] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
+[2025-12-11 15:05:17,767] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
+[2025-12-11 15:05:17,823] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
+[2025-12-11 15:05:17,838] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.93      0.77      0.84       100
@@ -121,7 +121,7 @@ weighted avg       0.89      0.88      0.88       154
    macro avg       0.80      0.83      0.80       154
 weighted avg       0.84      0.81      0.82       154
 
-[2025-12-10 04:04:40,475] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 15:05:17,865] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.94      0.88      0.91       100
@@ -131,10 +131,89 @@ weighted avg       0.84      0.81      0.82       154
    macro avg       0.87      0.88      0.87       154
 weighted avg       0.89      0.88      0.88       154
 
-[2025-12-10 04:41:28,272] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
-[2025-12-10 04:41:28,274] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 04:41:28,306] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 04:41:28,320] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 15:42:26,079] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
+[2025-12-11 15:42:26,079] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
+[2025-12-11 15:42:26,083] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
+[2025-12-11 15:42:26,084] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
+[2025-12-11 15:42:26,085] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
+[2025-12-11 15:42:26,085] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:42:26,086] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:42:26,088] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:42:26,088] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:42:26,089] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:42:26,095] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 14)
+[2025-12-11 15:42:26,098] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 13), X_test: (154, 13)
+[2025-12-11 15:42:26,099] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 14)
+[2025-12-11 15:42:26,100] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose', 'Outcome'], categorical=['BMI_category', 'Age_group'], datetime=[]
+[2025-12-11 15:42:26,103] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
+[2025-12-11 15:42:26,105] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
+[2025-12-11 15:42:26,106] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
+[2025-12-11 15:42:26,106] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
+[2025-12-11 15:42:26,107] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
+[2025-12-11 15:42:26,107] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
+[2025-12-11 15:42:26,107] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
+[2025-12-11 15:42:26,108] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
+[2025-12-11 15:42:26,108] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
+[2025-12-11 15:42:26,109] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancy_high: {0: 0.0, 1: 1.0}
+[2025-12-11 15:42:26,110] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose_x_BMI: {0: 3282.8999999999996, 1: 4985.7}
+[2025-12-11 15:42:26,110] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin_div_Glucose: {0: 0.9070257012806522, 1: 1.1764705767012689}
+[2025-12-11 15:42:26,115] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 15:42:26,120] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 15:42:26,127] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 15:42:26,135] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 15:42:26,139] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 15:42:26,145] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 15:42:26,153] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 15:42:26,153] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột BMI_category: Obese
+[2025-12-11 15:42:26,154] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột Age_group: 21-30
+[2025-12-11 15:42:26,155] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 15:42:26,157] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
+[2025-12-11 15:42:26,159] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
+[2025-12-11 15:42:26,160] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
+[2025-12-11 15:42:26,162] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
+[2025-12-11 15:42:26,164] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
+[2025-12-11 15:42:26,166] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
+[2025-12-11 15:42:26,167] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
+[2025-12-11 15:42:26,170] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
+[2025-12-11 15:42:26,172] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancy_high: lower=-1.5000, upper=2.5000
+[2025-12-11 15:42:26,173] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose_x_BMI: lower=229.6375, upper=7544.1375
+[2025-12-11 15:42:26,175] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin_div_Glucose: lower=0.5029, upper=1.5806
+[2025-12-11 15:42:26,178] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
+[2025-12-11 15:42:26,180] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose']
+[2025-12-11 15:42:26,182] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
+[2025-12-11 15:42:26,184] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
+[2025-12-11 15:42:26,185] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 14)
+[2025-12-11 15:42:26,187] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
+[2025-12-11 15:42:26,192] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 15:42:26,196] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 15:42:26,203] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 15:42:26,210] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 15:42:26,215] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 15:42:26,219] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 15:42:26,226] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 15:42:26,227] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 15:42:26,240] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
+[2025-12-11 15:42:26,242] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 20)
+[2025-12-11 15:42:26,243] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 14)
+[2025-12-11 15:42:26,246] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 14)
+[2025-12-11 15:42:26,248] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 15:42:26,250] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 15:42:26,252] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 15:42:26,256] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 15:42:26,257] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 15:42:26,260] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 15:42:26,263] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 15:42:26,263] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 15:42:26,274] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (154, 20)
+[2025-12-11 15:42:26,276] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 20)
+[2025-12-11 15:42:26,298] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
+[2025-12-11 15:42:26,302] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
+[2025-12-11 15:42:26,303] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
+[2025-12-11 15:42:26,304] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 19)
+[2025-12-11 15:42:26,304] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
+[2025-12-11 15:42:26,770] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 1.0}, best f1: 0.7989
+[2025-12-11 15:42:26,772] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
+[2025-12-11 15:42:26,785] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.93      0.77      0.84       100
@@ -144,7 +223,11 @@ weighted avg       0.89      0.88      0.88       154
    macro avg       0.80      0.83      0.80       154
 weighted avg       0.84      0.81      0.82       154
 
-[2025-12-10 04:41:28,348] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 15:42:26,785] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.8116883116883117, 'precision': 0.676056338028169, 'recall': 0.8888888888888888, 'f1': 0.768, 'roc_auc': np.float64(0.8524074074074075), 'tn': 77.0, 'fp': 23.0, 'fn': 6.0, 'tp': 48.0}
+[2025-12-11 15:42:26,786] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
+[2025-12-11 15:43:09,284] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 2, 'max_depth': 5}, best f1: 0.8422
+[2025-12-11 15:43:09,447] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
+[2025-12-11 15:43:09,551] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.94      0.88      0.91       100
@@ -154,10 +237,93 @@ weighted avg       0.84      0.81      0.82       154
    macro avg       0.87      0.88      0.87       154
 weighted avg       0.89      0.88      0.88       154
 
-[2025-12-10 04:42:34,702] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
-[2025-12-10 04:42:34,704] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 04:42:34,744] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 04:42:34,768] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 15:43:09,552] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8831168831168831, 'precision': 0.8, 'recall': 0.8888888888888888, 'f1': 0.8421052631578947, 'roc_auc': np.float64(0.9553703703703703), 'tn': 88.0, 'fp': 12.0, 'fn': 6.0, 'tp': 48.0}
+[2025-12-11 15:43:09,553] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8421)
+[2025-12-11 15:43:09,558] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
+[2025-12-11 15:43:09,559] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
+[2025-12-11 15:54:22,708] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
+[2025-12-11 15:54:22,709] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
+[2025-12-11 15:54:22,715] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
+[2025-12-11 15:54:22,716] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
+[2025-12-11 15:54:22,716] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
+[2025-12-11 15:54:22,717] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:54:22,719] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:54:22,727] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:54:22,731] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:54:22,735] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
+[2025-12-11 15:54:22,744] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 14)
+[2025-12-11 15:54:22,751] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 13), X_test: (154, 13)
+[2025-12-11 15:54:22,753] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 14)
+[2025-12-11 15:54:22,754] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose', 'Outcome'], categorical=['BMI_category', 'Age_group'], datetime=[]
+[2025-12-11 15:54:22,759] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
+[2025-12-11 15:54:22,762] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
+[2025-12-11 15:54:22,763] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
+[2025-12-11 15:54:22,764] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
+[2025-12-11 15:54:22,764] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
+[2025-12-11 15:54:22,765] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
+[2025-12-11 15:54:22,766] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
+[2025-12-11 15:54:22,766] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
+[2025-12-11 15:54:22,767] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
+[2025-12-11 15:54:22,767] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancy_high: {0: 0.0, 1: 1.0}
+[2025-12-11 15:54:22,768] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose_x_BMI: {0: 3282.8999999999996, 1: 4985.7}
+[2025-12-11 15:54:22,768] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin_div_Glucose: {0: 0.9070257012806522, 1: 1.1764705767012689}
+[2025-12-11 15:54:22,774] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 15:54:22,783] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 15:54:22,791] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 15:54:22,798] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 15:54:22,802] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 15:54:22,807] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 15:54:22,814] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 15:54:22,814] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột BMI_category: Obese
+[2025-12-11 15:54:22,815] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột Age_group: 21-30
+[2025-12-11 15:54:22,815] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 15:54:22,817] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
+[2025-12-11 15:54:22,819] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
+[2025-12-11 15:54:22,820] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
+[2025-12-11 15:54:22,822] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
+[2025-12-11 15:54:22,824] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
+[2025-12-11 15:54:22,825] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
+[2025-12-11 15:54:22,827] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
+[2025-12-11 15:54:22,828] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
+[2025-12-11 15:54:22,831] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancy_high: lower=-1.5000, upper=2.5000
+[2025-12-11 15:54:22,832] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose_x_BMI: lower=229.6375, upper=7544.1375
+[2025-12-11 15:54:22,833] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin_div_Glucose: lower=0.5029, upper=1.5806
+[2025-12-11 15:54:22,837] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
+[2025-12-11 15:54:22,839] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose']
+[2025-12-11 15:54:22,840] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
+[2025-12-11 15:54:22,842] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
+[2025-12-11 15:54:22,843] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 14)
+[2025-12-11 15:54:22,846] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
+[2025-12-11 15:54:22,850] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 15:54:22,855] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 15:54:22,861] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 15:54:22,869] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 15:54:22,874] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 15:54:22,878] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 15:54:22,885] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 15:54:22,886] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 15:54:22,896] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
+[2025-12-11 15:54:22,898] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 20)
+[2025-12-11 15:54:22,898] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 14)
+[2025-12-11 15:54:22,901] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 14)
+[2025-12-11 15:54:22,903] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
+[2025-12-11 15:54:22,905] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
+[2025-12-11 15:54:22,907] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
+[2025-12-11 15:54:22,910] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
+[2025-12-11 15:54:22,911] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
+[2025-12-11 15:54:22,913] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
+[2025-12-11 15:54:22,916] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
+[2025-12-11 15:54:22,917] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
+[2025-12-11 15:54:22,927] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (154, 20)
+[2025-12-11 15:54:22,930] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 20)
+[2025-12-11 15:54:22,950] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
+[2025-12-11 15:54:22,953] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
+[2025-12-11 15:54:22,954] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
+[2025-12-11 15:54:22,955] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 19)
+[2025-12-11 15:54:22,955] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
+[2025-12-11 15:54:23,405] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 1.0}, best f1: 0.7989
+[2025-12-11 15:54:23,407] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
+[2025-12-11 15:54:23,429] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.93      0.77      0.84       100
@@ -167,7 +333,11 @@ weighted avg       0.89      0.88      0.88       154
    macro avg       0.80      0.83      0.80       154
 weighted avg       0.84      0.81      0.82       154
 
-[2025-12-10 04:42:34,810] INFO - src.modeling.model_trainer - Classification report trên test:
+[2025-12-11 15:54:23,429] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.8116883116883117, 'precision': 0.676056338028169, 'recall': 0.8888888888888888, 'f1': 0.768, 'roc_auc': np.float64(0.8524074074074075), 'tn': 77.0, 'fp': 23.0, 'fn': 6.0, 'tp': 48.0}
+[2025-12-11 15:54:23,429] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
+[2025-12-11 15:54:51,605] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 2, 'max_depth': 5}, best f1: 0.8422
+[2025-12-11 15:54:51,648] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
+[2025-12-11 15:54:51,689] INFO - src.modeling.model_trainer - Classification report trên test:
               precision    recall  f1-score   support
 
            0       0.94      0.88      0.91       100
@@ -177,472 +347,7 @@ weighted avg       0.84      0.81      0.82       154
    macro avg       0.87      0.88      0.87       154
 weighted avg       0.89      0.88      0.88       154
 
-[2025-12-10 04:57:38,277] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
-[2025-12-10 04:57:38,277] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
-[2025-12-10 04:57:38,282] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
-[2025-12-10 04:57:38,283] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 04:57:38,283] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
-[2025-12-10 04:57:38,284] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 04:57:38,286] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 04:57:38,287] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 04:57:38,288] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 04:57:38,289] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 04:57:38,290] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 9)
-[2025-12-10 04:57:38,296] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 8), X_test: (154, 8)
-[2025-12-10 04:57:38,297] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 9)
-[2025-12-10 04:57:38,298] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 04:57:38,300] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 9)
-[2025-12-10 04:57:38,303] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
-[2025-12-10 04:57:38,303] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
-[2025-12-10 04:57:38,304] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
-[2025-12-10 04:57:38,304] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
-[2025-12-10 04:57:38,305] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
-[2025-12-10 04:57:38,305] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
-[2025-12-10 04:57:38,305] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
-[2025-12-10 04:57:38,306] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
-[2025-12-10 04:57:38,311] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 04:57:38,317] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 04:57:38,323] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 04:57:38,330] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 04:57:38,335] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 04:57:38,336] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
-[2025-12-10 04:57:38,339] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
-[2025-12-10 04:57:38,340] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
-[2025-12-10 04:57:38,342] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
-[2025-12-10 04:57:38,345] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
-[2025-12-10 04:57:38,347] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
-[2025-12-10 04:57:38,348] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
-[2025-12-10 04:57:38,351] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
-[2025-12-10 04:57:38,354] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
-[2025-12-10 04:57:38,356] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
-[2025-12-10 04:57:38,360] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
-[2025-12-10 04:57:38,360] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 9)
-[2025-12-10 04:57:38,361] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 9)
-[2025-12-10 04:57:38,367] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 04:57:38,374] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 04:57:38,380] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 04:57:38,388] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 04:57:38,393] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 04:57:38,400] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 9)
-[2025-12-10 04:57:38,401] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 9)
-[2025-12-10 04:57:38,402] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 9)
-[2025-12-10 04:57:38,405] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 04:57:38,407] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 04:57:38,409] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 04:57:38,412] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 04:57:38,414] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 04:57:38,423] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 9)
-[2025-12-10 04:57:38,452] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
-[2025-12-10 04:57:38,455] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
-[2025-12-10 04:57:38,456] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
-[2025-12-10 04:57:38,456] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 8)
-[2025-12-10 04:57:38,456] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
-[2025-12-10 04:57:38,902] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 0.01}, best f1: 0.7802
-[2025-12-10 04:57:38,904] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 04:57:38,921] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.90      0.75      0.82       100
-           1       0.65      0.85      0.74        54
-
-    accuracy                           0.79       154
-   macro avg       0.78      0.80      0.78       154
-weighted avg       0.81      0.79      0.79       154
-
-[2025-12-10 04:57:38,921] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.7857142857142857, 'precision': 0.647887323943662, 'recall': 0.8518518518518519, 'f1': 0.736, 'roc_auc': np.float64(0.8101851851851852), 'tn': 75.0, 'fp': 25.0, 'fn': 8.0, 'tp': 46.0}
-[2025-12-10 04:57:38,921] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
-[2025-12-10 04:58:10,362] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 5, 'max_depth': None}, best f1: 0.8406
-[2025-12-10 04:58:10,414] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 04:58:10,451] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.88      0.91      0.90       100
-           1       0.82      0.78      0.80        54
-
-    accuracy                           0.86       154
-   macro avg       0.85      0.84      0.85       154
-weighted avg       0.86      0.86      0.86       154
-
-[2025-12-10 04:58:10,451] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8636363636363636, 'precision': 0.8235294117647058, 'recall': 0.7777777777777778, 'f1': 0.8, 'roc_auc': np.float64(0.94), 'tn': 91.0, 'fp': 9.0, 'fn': 12.0, 'tp': 42.0}
-[2025-12-10 04:58:10,452] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8000)
-[2025-12-10 04:58:10,464] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
-[2025-12-10 04:58:10,465] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
-[2025-12-10 05:02:08,934] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
-[2025-12-10 05:02:08,934] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
-[2025-12-10 05:02:08,939] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
-[2025-12-10 05:02:08,940] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 05:02:08,940] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
-[2025-12-10 05:02:08,941] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:02:08,942] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:02:08,943] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:02:08,943] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:02:08,944] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:02:08,945] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 9)
-[2025-12-10 05:02:08,950] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 8), X_test: (154, 8)
-[2025-12-10 05:02:08,951] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 9)
-[2025-12-10 05:02:08,952] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 05:02:08,955] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 9)
-[2025-12-10 05:02:08,962] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
-[2025-12-10 05:02:08,963] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
-[2025-12-10 05:02:08,964] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
-[2025-12-10 05:02:08,964] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
-[2025-12-10 05:02:08,965] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
-[2025-12-10 05:02:08,967] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
-[2025-12-10 05:02:08,968] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
-[2025-12-10 05:02:08,969] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
-[2025-12-10 05:02:08,977] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 05:02:08,983] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 05:02:08,991] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 05:02:09,002] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 05:02:09,007] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 05:02:09,010] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
-[2025-12-10 05:02:09,013] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
-[2025-12-10 05:02:09,015] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
-[2025-12-10 05:02:09,018] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
-[2025-12-10 05:02:09,020] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
-[2025-12-10 05:02:09,022] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
-[2025-12-10 05:02:09,025] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
-[2025-12-10 05:02:09,027] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
-[2025-12-10 05:02:09,032] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
-[2025-12-10 05:02:09,034] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
-[2025-12-10 05:02:09,038] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
-[2025-12-10 05:02:09,039] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 9)
-[2025-12-10 05:02:09,040] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 9)
-[2025-12-10 05:02:09,046] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 05:02:09,050] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 05:02:09,056] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 05:02:09,064] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 05:02:09,071] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 05:02:09,083] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 9)
-[2025-12-10 05:02:09,084] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 9)
-[2025-12-10 05:02:09,086] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 9)
-[2025-12-10 05:02:09,088] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 05:02:09,090] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 05:02:09,092] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 05:02:09,095] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 05:02:09,097] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 05:02:09,105] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 9)
-[2025-12-10 05:02:09,128] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
-[2025-12-10 05:02:09,131] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
-[2025-12-10 05:02:09,132] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
-[2025-12-10 05:02:09,132] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 8)
-[2025-12-10 05:02:09,132] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
-[2025-12-10 05:02:09,602] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 0.01}, best f1: 0.7802
-[2025-12-10 05:02:09,604] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 05:02:09,622] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.90      0.75      0.82       100
-           1       0.65      0.85      0.74        54
-
-    accuracy                           0.79       154
-   macro avg       0.78      0.80      0.78       154
-weighted avg       0.81      0.79      0.79       154
-
-[2025-12-10 05:02:09,622] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.7857142857142857, 'precision': 0.647887323943662, 'recall': 0.8518518518518519, 'f1': 0.736, 'roc_auc': np.float64(0.8101851851851852), 'tn': 75.0, 'fp': 25.0, 'fn': 8.0, 'tp': 46.0}
-[2025-12-10 05:02:09,622] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
-[2025-12-10 05:02:40,953] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 5, 'max_depth': None}, best f1: 0.8406
-[2025-12-10 05:02:41,003] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 05:02:41,036] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.88      0.91      0.90       100
-           1       0.82      0.78      0.80        54
-
-    accuracy                           0.86       154
-   macro avg       0.85      0.84      0.85       154
-weighted avg       0.86      0.86      0.86       154
-
-[2025-12-10 05:02:41,037] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8636363636363636, 'precision': 0.8235294117647058, 'recall': 0.7777777777777778, 'f1': 0.8, 'roc_auc': np.float64(0.94), 'tn': 91.0, 'fp': 9.0, 'fn': 12.0, 'tp': 42.0}
-[2025-12-10 05:02:41,037] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8000)
-[2025-12-10 05:02:41,040] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
-[2025-12-10 05:02:41,041] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
-[2025-12-10 05:02:53,931] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
-[2025-12-10 05:02:53,947] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 05:02:53,989] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 05:02:54,005] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.90      0.75      0.82       100
-           1       0.65      0.85      0.74        54
-
-    accuracy                           0.79       154
-   macro avg       0.78      0.80      0.78       154
-weighted avg       0.81      0.79      0.79       154
-
-[2025-12-10 05:02:54,038] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.88      0.91      0.90       100
-           1       0.82      0.78      0.80        54
-
-    accuracy                           0.86       154
-   macro avg       0.85      0.84      0.85       154
-weighted avg       0.86      0.86      0.86       154
-
-[2025-12-10 05:19:53,699] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
-[2025-12-10 05:19:53,699] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
-[2025-12-10 05:19:53,704] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
-[2025-12-10 05:19:53,706] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 05:19:53,706] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
-[2025-12-10 05:19:53,707] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:19:53,708] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:19:53,709] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:19:53,710] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:19:53,711] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 05:19:53,715] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 14)
-[2025-12-10 05:19:53,718] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 13), X_test: (154, 13)
-[2025-12-10 05:19:53,720] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 14)
-[2025-12-10 05:19:53,722] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose', 'Outcome'], categorical=['BMI_category', 'Age_group'], datetime=[]
-[2025-12-10 05:19:53,725] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
-[2025-12-10 05:19:53,728] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
-[2025-12-10 05:19:53,729] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
-[2025-12-10 05:19:53,730] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
-[2025-12-10 05:19:53,730] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
-[2025-12-10 05:19:53,730] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
-[2025-12-10 05:19:53,731] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
-[2025-12-10 05:19:53,731] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
-[2025-12-10 05:19:53,731] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
-[2025-12-10 05:19:53,732] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancy_high: {0: 0.0, 1: 1.0}
-[2025-12-10 05:19:53,732] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose_x_BMI: {0: 3282.8999999999996, 1: 4985.7}
-[2025-12-10 05:19:53,732] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin_div_Glucose: {0: 0.9070257012806522, 1: 1.1764705767012689}
-[2025-12-10 05:19:53,738] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 05:19:53,743] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 05:19:53,750] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 05:19:53,758] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 05:19:53,763] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 05:19:53,768] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 05:19:53,776] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 05:19:53,777] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột BMI_category: Obese
-[2025-12-10 05:19:53,777] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột Age_group: 21-30
-[2025-12-10 05:19:53,778] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 05:19:53,779] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
-[2025-12-10 05:19:53,783] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
-[2025-12-10 05:19:53,786] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
-[2025-12-10 05:19:53,789] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
-[2025-12-10 05:19:53,792] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
-[2025-12-10 05:19:53,794] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
-[2025-12-10 05:19:53,797] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
-[2025-12-10 05:19:53,799] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
-[2025-12-10 05:19:53,802] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancy_high: lower=-1.5000, upper=2.5000
-[2025-12-10 05:19:53,806] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose_x_BMI: lower=229.6375, upper=7544.1375
-[2025-12-10 05:19:53,808] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin_div_Glucose: lower=0.5029, upper=1.5806
-[2025-12-10 05:19:53,815] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
-[2025-12-10 05:19:53,819] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose']
-[2025-12-10 05:19:53,820] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
-[2025-12-10 05:19:53,823] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
-[2025-12-10 05:19:53,824] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 14)
-[2025-12-10 05:19:53,827] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
-[2025-12-10 05:19:53,832] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 05:19:53,837] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 05:19:53,844] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 05:19:53,853] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 05:19:53,857] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 05:19:53,862] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 05:19:53,869] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 05:19:53,870] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 05:19:53,881] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
-[2025-12-10 05:19:53,884] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 20)
-[2025-12-10 05:19:53,884] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 14)
-[2025-12-10 05:19:53,890] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 14)
-[2025-12-10 05:19:53,892] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 05:19:53,896] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 05:19:53,899] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 05:19:53,904] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 05:19:53,906] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 05:19:53,909] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 05:19:53,912] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 05:19:53,912] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 05:19:53,925] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (154, 20)
-[2025-12-10 05:19:53,928] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 20)
-[2025-12-10 05:19:53,953] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
-[2025-12-10 05:19:53,958] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
-[2025-12-10 05:19:53,959] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
-[2025-12-10 05:19:53,959] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 19)
-[2025-12-10 05:19:53,960] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
-[2025-12-10 05:19:54,499] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 1.0}, best f1: 0.7989
-[2025-12-10 05:19:54,501] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 05:19:54,516] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.93      0.77      0.84       100
-           1       0.68      0.89      0.77        54
-
-    accuracy                           0.81       154
-   macro avg       0.80      0.83      0.80       154
-weighted avg       0.84      0.81      0.82       154
-
-[2025-12-10 05:19:54,517] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.8116883116883117, 'precision': 0.676056338028169, 'recall': 0.8888888888888888, 'f1': 0.768, 'roc_auc': np.float64(0.8524074074074075), 'tn': 77.0, 'fp': 23.0, 'fn': 6.0, 'tp': 48.0}
-[2025-12-10 05:19:54,517] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
-[2025-12-10 05:20:29,030] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 2, 'max_depth': 5}, best f1: 0.8422
-[2025-12-10 05:20:29,077] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 05:20:29,114] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.94      0.88      0.91       100
-           1       0.80      0.89      0.84        54
-
-    accuracy                           0.88       154
-   macro avg       0.87      0.88      0.87       154
-weighted avg       0.89      0.88      0.88       154
-
-[2025-12-10 05:20:29,115] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8831168831168831, 'precision': 0.8, 'recall': 0.8888888888888888, 'f1': 0.8421052631578947, 'roc_auc': np.float64(0.9553703703703703), 'tn': 88.0, 'fp': 12.0, 'fn': 6.0, 'tp': 48.0}
-[2025-12-10 05:20:29,115] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8421)
-[2025-12-10 05:20:29,118] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
-[2025-12-10 05:20:29,119] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
-[2025-12-10 05:20:40,913] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
-[2025-12-10 05:20:40,917] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 05:20:40,981] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 05:20:41,003] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.93      0.77      0.84       100
-           1       0.68      0.89      0.77        54
-
-    accuracy                           0.81       154
-   macro avg       0.80      0.83      0.80       154
-weighted avg       0.84      0.81      0.82       154
-
-[2025-12-10 05:20:41,037] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.94      0.88      0.91       100
-           1       0.80      0.89      0.84        54
-
-    accuracy                           0.88       154
-   macro avg       0.87      0.88      0.87       154
-weighted avg       0.89      0.88      0.88       154
-
-[2025-12-10 06:06:54,029] INFO - src.preprocessing.data_preprocessor - Khởi tạo DataPreprocessor: DataPreprocessor(target_col=Outcome, missing_numeric_strategy=median_by_outcome, outlier_strategy=winsorize, scaler=standard, encoding=onehot)
-[2025-12-10 06:06:54,029] INFO - src.preprocessing.data_preprocessor - Đang load dữ liệu từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\raw\diabetes.csv
-[2025-12-10 06:06:54,034] INFO - src.preprocessing.data_preprocessor - Dữ liệu load thành công. Shape: (768, 9)
-[2025-12-10 06:06:54,035] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome'], categorical=[], datetime=[]
-[2025-12-10 06:06:54,035] INFO - src.preprocessing.data_preprocessor - Bắt đầu run_full_preprocessing. Tổng shape: (768, 9)
-[2025-12-10 06:06:54,037] INFO - src.preprocessing.data_preprocessor - Cột Glucose có 5 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 06:06:54,038] INFO - src.preprocessing.data_preprocessor - Cột BloodPressure có 35 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 06:06:54,039] INFO - src.preprocessing.data_preprocessor - Cột SkinThickness có 227 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 06:06:54,040] INFO - src.preprocessing.data_preprocessor - Cột Insulin có 374 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 06:06:54,041] INFO - src.preprocessing.data_preprocessor - Cột BMI có 11 giá trị 0 (coi là missing ẩn). Thay bằng NaN.
-[2025-12-10 06:06:54,049] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (768, 14)
-[2025-12-10 06:06:54,054] INFO - src.preprocessing.data_preprocessor - Chia train/test xong. X_train: (614, 13), X_test: (154, 13)
-[2025-12-10 06:06:54,056] INFO - src.preprocessing.data_preprocessor - Bắt đầu fit DataPreprocessor. Shape: (614, 14)
-[2025-12-10 06:06:54,058] INFO - src.preprocessing.data_preprocessor - Phân loại cột: numeric=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose', 'Outcome'], categorical=['BMI_category', 'Age_group'], datetime=[]
-[2025-12-10 06:06:54,062] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
-[2025-12-10 06:06:54,066] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancies: {0: 2.0, 1: 4.0}
-[2025-12-10 06:06:54,067] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose: {0: 108.0, 1: 141.5}
-[2025-12-10 06:06:54,067] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BloodPressure: {0: 70.0, 1: 76.0}
-[2025-12-10 06:06:54,068] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột SkinThickness: {0: 27.0, 1: 33.0}
-[2025-12-10 06:06:54,068] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin: {0: 100.0, 1: 168.0}
-[2025-12-10 06:06:54,068] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột BMI: {0: 30.1, 1: 34.349999999999994}
-[2025-12-10 06:06:54,069] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột DiabetesPedigreeFunction: {0: 0.3415, 1: 0.461}
-[2025-12-10 06:06:54,070] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Age: {0: 27.0, 1: 36.0}
-[2025-12-10 06:06:54,071] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Pregnancy_high: {0: 0.0, 1: 1.0}
-[2025-12-10 06:06:54,072] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Glucose_x_BMI: {0: 3282.8999999999996, 1: 4985.7}
-[2025-12-10 06:06:54,072] INFO - src.preprocessing.data_preprocessor - Imputer numeric (median_by_outcome) cột Insulin_div_Glucose: {0: 0.9070257012806522, 1: 1.1764705767012689}
-[2025-12-10 06:06:54,078] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 06:06:54,083] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 06:06:54,090] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 06:06:54,098] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 06:06:54,103] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 06:06:54,108] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 06:06:54,115] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 06:06:54,116] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột BMI_category: Obese
-[2025-12-10 06:06:54,117] INFO - src.preprocessing.data_preprocessor - Imputer categorical (most_frequent) cột Age_group: 21-30
-[2025-12-10 06:06:54,117] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 06:06:54,119] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancies: lower=-6.5000, upper=13.5000
-[2025-12-10 06:06:54,121] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose: lower=36.0000, upper=204.0000
-[2025-12-10 06:06:54,123] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BloodPressure: lower=40.0000, upper=104.0000
-[2025-12-10 06:06:54,125] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột SkinThickness: lower=13.0000, upper=45.0000
-[2025-12-10 06:06:54,128] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin: lower=-2.0000, upper=270.0000
-[2025-12-10 06:06:54,130] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột BMI: lower=14.3125, upper=49.8125
-[2025-12-10 06:06:54,131] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột DiabetesPedigreeFunction: lower=-0.3464, upper=1.2306
-[2025-12-10 06:06:54,134] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Age: lower=-1.5000, upper=66.5000
-[2025-12-10 06:06:54,136] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Pregnancy_high: lower=-1.5000, upper=2.5000
-[2025-12-10 06:06:54,137] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Glucose_x_BMI: lower=229.6375, upper=7544.1375
-[2025-12-10 06:06:54,139] INFO - src.preprocessing.data_preprocessor - IQR bounds cho cột Insulin_div_Glucose: lower=0.5029, upper=1.5806
-[2025-12-10 06:06:54,143] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
-[2025-12-10 06:06:54,145] INFO - src.preprocessing.data_preprocessor - Fit scaler (standard) cho các cột: ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Pregnancy_high', 'Glucose_x_BMI', 'Insulin_div_Glucose']
-[2025-12-10 06:06:54,147] INFO - src.preprocessing.data_preprocessor - Đã lưu scaler vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\scaler.joblib
-[2025-12-10 06:06:54,150] INFO - src.preprocessing.data_preprocessor - Fit DataPreprocessor hoàn tất.
-[2025-12-10 06:06:54,151] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (614, 14)
-[2025-12-10 06:06:54,153] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (614, 14)
-[2025-12-10 06:06:54,160] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 06:06:54,165] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 06:06:54,172] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 06:06:54,180] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 06:06:54,184] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 06:06:54,190] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 06:06:54,198] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 06:06:54,199] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 06:06:54,209] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (614, 20)
-[2025-12-10 06:06:54,212] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (614, 20)
-[2025-12-10 06:06:54,213] INFO - src.preprocessing.data_preprocessor - Bắt đầu transform dữ liệu. Shape: (154, 14)
-[2025-12-10 06:06:54,215] INFO - src.preprocessing.data_preprocessor - Feature engineering hoàn tất. Shape mới: (154, 14)
-[2025-12-10 06:06:54,218] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose.
-[2025-12-10 06:06:54,220] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BloodPressure.
-[2025-12-10 06:06:54,223] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột SkinThickness.
-[2025-12-10 06:06:54,226] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin.
-[2025-12-10 06:06:54,228] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột BMI.
-[2025-12-10 06:06:54,230] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Glucose_x_BMI.
-[2025-12-10 06:06:54,233] INFO - src.preprocessing.data_preprocessor - Impute missing numeric (median_by_outcome) cho cột Insulin_div_Glucose.
-[2025-12-10 06:06:54,234] INFO - src.preprocessing.data_preprocessor - Impute missing categorical cho cột BMI_category.
-[2025-12-10 06:06:54,244] INFO - src.preprocessing.data_preprocessor - One-hot encoding hoàn tất. Shape mới: (154, 20)
-[2025-12-10 06:06:54,247] INFO - src.preprocessing.data_preprocessor - Transform dữ liệu hoàn tất. Shape mới: (154, 20)
-[2025-12-10 06:06:54,270] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_train_processed.parquet
-[2025-12-10 06:06:54,273] INFO - src.preprocessing.data_preprocessor - Đã lưu dữ liệu processed vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\data\processed\pima_test_processed.parquet
-[2025-12-10 06:06:54,275] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=False)
-[2025-12-10 06:06:54,275] INFO - src.modeling.model_trainer - Bắt đầu run_training. X_train shape: (614, 19)
-[2025-12-10 06:06:54,275] INFO - src.modeling.model_trainer - Huấn luyện model: log_reg
-[2025-12-10 06:06:54,765] INFO - src.modeling.model_trainer - Hoàn tất CV cho log_reg. Best params: {'penalty': 'l1', 'C': 1.0}, best f1: 0.7989
-[2025-12-10 06:06:54,767] INFO - src.modeling.model_trainer - Đã lưu model 'log_reg' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 06:06:54,781] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.93      0.77      0.84       100
-           1       0.68      0.89      0.77        54
-
-    accuracy                           0.81       154
-   macro avg       0.80      0.83      0.80       154
-weighted avg       0.84      0.81      0.82       154
-
-[2025-12-10 06:06:54,782] INFO - src.modeling.model_trainer - Test metrics cho log_reg: {'accuracy': 0.8116883116883117, 'precision': 0.676056338028169, 'recall': 0.8888888888888888, 'f1': 0.768, 'roc_auc': np.float64(0.8524074074074075), 'tn': 77.0, 'fp': 23.0, 'fn': 6.0, 'tp': 48.0}
-[2025-12-10 06:06:54,782] INFO - src.modeling.model_trainer - Huấn luyện model: random_forest
-[2025-12-10 06:07:27,493] INFO - src.modeling.model_trainer - Hoàn tất CV cho random_forest. Best params: {'n_estimators': 200, 'min_samples_split': 2, 'max_depth': 5}, best f1: 0.8422
-[2025-12-10 06:07:27,546] INFO - src.modeling.model_trainer - Đã lưu model 'random_forest' vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 06:07:27,580] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.94      0.88      0.91       100
-           1       0.80      0.89      0.84        54
-
-    accuracy                           0.88       154
-   macro avg       0.87      0.88      0.87       154
-weighted avg       0.89      0.88      0.88       154
-
-[2025-12-10 06:07:27,581] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8831168831168831, 'precision': 0.8, 'recall': 0.8888888888888888, 'f1': 0.8421052631578947, 'roc_auc': np.float64(0.9553703703703703), 'tn': 88.0, 'fp': 12.0, 'fn': 6.0, 'tp': 48.0}
-[2025-12-10 06:07:27,581] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8421)
-[2025-12-10 06:07:27,585] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
-[2025-12-10 06:07:27,586] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
-[2025-12-10 06:11:26,732] INFO - src.modeling.model_trainer - Khởi tạo ModelTrainer với config: ModelTrainer(models=['log_reg', 'random_forest'], scoring_primary=f1, cv_splits=5, use_smote=True)
-[2025-12-10 06:11:26,736] INFO - src.modeling.model_trainer - Đã load model 'log_reg' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\log_reg_best.joblib
-[2025-12-10 06:11:26,787] INFO - src.modeling.model_trainer - Đã load model 'random_forest' từ: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\models\random_forest_best.joblib
-[2025-12-10 06:11:26,805] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.93      0.77      0.84       100
-           1       0.68      0.89      0.77        54
-
-    accuracy                           0.81       154
-   macro avg       0.80      0.83      0.80       154
-weighted avg       0.84      0.81      0.82       154
-
-[2025-12-10 06:11:26,842] INFO - src.modeling.model_trainer - Classification report trên test:
-              precision    recall  f1-score   support
-
-           0       0.94      0.88      0.91       100
-           1       0.80      0.89      0.84        54
-
-    accuracy                           0.88       154
-   macro avg       0.87      0.88      0.87       154
-weighted avg       0.89      0.88      0.88       154
-
+[2025-12-11 15:54:51,689] INFO - src.modeling.model_trainer - Test metrics cho random_forest: {'accuracy': 0.8831168831168831, 'precision': 0.8, 'recall': 0.8888888888888888, 'f1': 0.8421052631578947, 'roc_auc': np.float64(0.9553703703703703), 'tn': 88.0, 'fp': 12.0, 'fn': 6.0, 'tp': 48.0}
+[2025-12-11 15:54:51,690] INFO - src.modeling.model_trainer - Model tốt nhất trên test theo f1: random_forest (score=0.8421)
+[2025-12-11 15:54:51,693] INFO - src.modeling.model_trainer - Đã ghi toàn bộ test metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\experiments.csv
+[2025-12-11 15:54:51,693] INFO - src.modeling.model_trainer - Đã ghi model tốt nhất và metrics vào: E:\3_CODING\Python\Python cho kdl\PRO\PT\pima-diabetes-project\results\best_model.txt
