@@ -1,21 +1,17 @@
 ---
 ------------------------------ PHƯỚNG DẪN CÀI ĐẶT THƯ VIỆN ------------------------------
-
 ---
-
 # **Chuẩn bị môi trường (chạy 1 lần duy nhất)**
   Mở terminal tại thư mục:
   ```bash
   pima-diabetes-project/
   ````
   ---
-
 ### **Tạo môi trường ảo (khuyến nghị)**
 ```bash
 python -m venv .venv
 .venv\Scripts\activate   # Windows
 ```
-
 ### **Cài dependencies**
 ```bash
 pip install -r requirements.txt
@@ -28,11 +24,10 @@ pip install -r requirements.txt
 ---
 ---
 
----
------------------------------- HƯỚNG DẪN CHẠY DỰ ÁN ------------------------------
----
 
-## **       Giới thiệu Cấu hình Hệ thống (Configuration)           **
+---
+------------------------------ GIỚI THIỆU VỀ CẤU HÌNH HỆ THỐNG ------------------------------
+---
 Dự án sử dụng Configuration Object Pattern để quản lý tham số, chia làm 2 tầng:
   1. **Cấu hình Mặc định (Default Settings)**:
     * Nằm trong `src/preprocessing/data_preprocessor.py` và `src/modeling/model_trainer.py`.
@@ -44,6 +39,17 @@ Dự án sử dụng Configuration Object Pattern để quản lý tham số, ch
         ? - [Giải thích THAM SỐ TRUYỀN VÀO](./reports/THAM%20SỐ%20TRUYỀN%20VÀO.pdf)
     * Đây là nơi ghi đè (override) các cài đặt mặc định để tùy chỉnh thí nghiệm. Việc hiển thị rõ các tham số tại đây giúp người dùng dễ dàng theo dõi và thay đổi chiến lược xử lý mà không cần can thiệp vào code lõi.
 
+---
+
+---
+---
+---
+---
+---
+---
+
+---
+------------------------------ HƯỚNG DẪN CHẠY DỰ ÁN ------------------------------
 ---
 
 # **        1. (Tuỳ chọn) Chạy Notebook 01 — EDA        **
@@ -61,20 +67,20 @@ Notebook này dùng để:
 Nó chỉ giúp hiểu dữ liệu trước khi tiền hành tiền xử lý và modeling.
 
 ---
-# **        2. Chạy Pipeline Chính — BẮT BUỘC        **
+# **        2. Chạy Pipeline Chính — BẮT BUỘC CHẠY        **
 Pipeline nằm trong:
 ```text
 src/main.py
 ```
 Chạy bằng một lệnh duy nhất:
 
-```bash
-python -m src.main
-```
-    Hoặc:
+          ```bash
+          python -m src.main
+          ```
+              Hoặc:
 
-```bash
-python src/main.py
+          ```bash
+          python src/main.py
 ```
 ### Bên trong pipeline sẽ tự động:
 1. Xác định `project_root`
@@ -100,7 +106,7 @@ python src/main.py
    ```
 
 ---
-# **        5. Chạy Notebook 02 — Evaluation, Visualization        **
+# **        3. Chạy Notebook 02 — Evaluation, Visualization        **
 Sau khi pipeline chạy xong ít nhất 1 lần, thư mục sau sẽ xuất hiện:
   * `data/processed/*.parquet` -> cleaned data
   * `models/*_best.joblib` -> the best model
@@ -125,7 +131,7 @@ Notebook này dùng để:
 
 ---
 
-# **        6. Chú ý quan trọng        **
+# **        4. Chú ý quan trọng        **
 ### Không cần chạy trực tiếp:
 * `data_preprocessor.py`
 * `model_trainer.py`
